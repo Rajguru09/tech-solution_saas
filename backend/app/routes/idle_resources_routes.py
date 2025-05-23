@@ -1,4 +1,4 @@
-# backend/app/routes/idle_resources_routes.py
+# backend/app/routes/idle_resources_routes.py #
 from fastapi import APIRouter, HTTPException, Depends, Request
 from typing import List, Dict
 from pydantic import BaseModel
