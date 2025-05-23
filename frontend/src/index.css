@@ -1,1 +1,138 @@
+/* Base variables */
+:root {
+  --color-bg: #0f172a;
+  --color-bg-light: #1e293b;
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-text: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-input-bg: #334155;
+  --color-input-border: #475569;
+  --font-family: "Inter", system-ui, sans-serif;
+}
 
+/* Reset & layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-bg-darker);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+input {
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--color-input-text);
+  margin-bottom: 1.2rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--color-input-placeholder);
+}
+
+button[type="submit"] {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-primary-hover);
+}
+
+p {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.95rem;
+  text-decoration: underline;
+}
+
+.link-button:hover {
+  color: var(--color-primary-hover);
+}
+
+.service-button {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 1rem auto;
+  padding: 1.25rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #646cff, #535bf2);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #535bf2, #4348e0);
+}
+
+.service-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(100, 108, 255, 0.4);
+}
