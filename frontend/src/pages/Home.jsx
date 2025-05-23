@@ -4,81 +4,67 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const navigate = useNavigate();
 
-  const handleIdleResourcesClick = () => {
-    // Navigate to AWS credentials verification first
-    navigate('/aws-credentials');
-  };
-
-  const handleAuditingClick = () => {
-    // Navigate directly to Accountability Auditing (you can also add a credentials step here if needed)
-    navigate('/accountability-auditing');
-  };
-
-  const handleLogout = () => {
-    navigate('/login');
+  const handleCardClick = (path) => {
+    navigate('/aws-credentials', { state: { nextPath: path } });
   };
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Welcome to CleanCloud</h1>
-      <div style={styles.buttonGroup}>
-        <button style={styles.button} onClick={handleIdleResourcesClick}>
-          Idle Resources
-        </button>
-        <button style={styles.button} onClick={handleAuditingClick}>
-          Accountability Auditing
-        </button>
+    <div style={styles.wrapper}>
+      <h1 style={styles.heading}>Welcome to CleanCloud</h1>
+      <div style={styles.cardContainer}>
+        <div style={styles.card} onClick={() => handleCardClick('/idle-resources')}>
+          <h2 style={styles.cardTitle}>🧹 Idle Resources</h2>
+          <p style={styles.cardDesc}>Detect and clean up unused AWS resources.</p>
+        </div>
+        <div style={styles.card} onClick={() => handleCardClick('/accountability-auditing')}>
+          <h2 style={styles.cardTitle}>📋 Accountability Auditing</h2>
+          <p style={styles.cardDesc}>Audit missing tags, ownership, and team accountability.</p>
+        </div>
       </div>
-      <button style={styles.logoutButton} onClick={handleLogout}>
-        Logout
-      </button>
     </div>
   );
 }
 
 const styles = {
-  container: {
-    maxWidth: '600px',
-    margin: 'auto',
-    padding: '3rem',
-    textAlign: 'center',
-    fontFamily: 'system-ui, Avenir, Helvetica, Arial, sans-serif',
-    backgroundColor: '#1e1e1e',
-    borderRadius: '16px',
-    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
-    color: '#eee',
-  },
-  title: {
-    marginBottom: '2rem',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-  },
-  buttonGroup: {
+  wrapper: {
+    height: '100vh',
+    width: '100vw',
+    background: 'linear-gradient(to right, #6a11cb, #2575fc)',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1rem',
-    marginBottom: '2rem',
-  },
-  button: {
-    padding: '0.75em 1.5em',
-    fontSize: '1.1em',
-    borderRadius: '8px',
-    border: 'none',
-    cursor: 'pointer',
-    backgroundColor: '#646cff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     color: '#fff',
-    transition: 'background-color 0.3s ease',
+    textAlign: 'center',
+    padding: '2rem',
   },
-  logoutButton: {
-    padding: '0.6em 1.2em',
-    fontSize: '1em',
-    borderRadius: '8px',
-    border: '1px solid #646cff',
-    backgroundColor: 'transparent',
-    color: '#646cff',
+  heading: {
+    fontSize: '2.5rem',
+    marginBottom: '2rem',
+    fontWeight: '700',
+  },
+  cardContainer: {
+    display: 'flex',
+    gap: '2rem',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  card: {
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: '16px',
+    padding: '2rem',
+    width: '280px',
     cursor: 'pointer',
-    transition: 'background-color 0.3s ease, color 0.3s ease',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
+  },
+  cardTitle: {
+    fontSize: '1.4rem',
+    marginBottom: '0.5rem',
+  },
+  cardDesc: {
+    fontSize: '1rem',
+    color: '#e0e0e0',
   },
 };
-
