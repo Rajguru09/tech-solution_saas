@@ -13,11 +13,11 @@ export default function Home() {
       <h1 style={styles.heading}>Welcome to CleanCloud</h1>
       <div style={styles.cardContainer}>
         <div style={styles.card} onClick={() => handleCardClick('/idle-resources')}>
-          <h2 style={styles.cardTitle}>🧹 Idle Resources</h2>
+          <h2 style={styles.cardTitle}> Idle Resources</h2>
           <p style={styles.cardDesc}>Detect and clean up unused AWS resources.</p>
         </div>
         <div style={styles.card} onClick={() => handleCardClick('/accountability-auditing')}>
-          <h2 style={styles.cardTitle}>📋 Accountability Auditing</h2>
+          <h2 style={styles.cardTitle}> Accountability Auditing</h2>
           <p style={styles.cardDesc}>Audit missing tags, ownership, and team accountability.</p>
         </div>
       </div>
