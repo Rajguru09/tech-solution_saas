@@ -26,15 +26,19 @@ async def get_idle_resources(creds: AWSCredentials):
 
     # Parallel or sequential scan all resource types
     ebs_idle = ebs.get_idle_ebs_volumes(credentials)
+    ec2_idle = ec2.get_idle_ec2_instances(credentials)
+    eip_idle = eip.get_idle_eips(credentials)
+    s3_idle = s3.get_idle_s3_buckets(credentials)
+    snapshots_idle = snapshots.get_idle_snapshots(credentials)
     # Similar calls to ec2.get_idle_ec2_instances(credentials), eip.get_idle_eips(credentials), etc.
     # For demo, just ebs included here
 
     return {
         "ebs": ebs_idle,
-        # "ec2": ec2_idle,
-        # "eip": eip_idle,
-        # "s3": s3_idle,
-        # "snapshots": snapshots_idle,
+        "ec2": ec2_idle,
+        "eip": eip_idle,
+        "s3": s3_idle,
+        "snapshots": snapshots_idle,
     }
 
 @router.delete("/idle-resources/{resource_type}/{resource_id}")
