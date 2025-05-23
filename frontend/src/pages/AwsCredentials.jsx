@@ -20,12 +20,11 @@ export default function AwsCredentials() {
 
   return (
     <div style={styles.wrapper}>
-      <div style={styles.card}>
+      <div style={styles.form}>
         <h2 style={styles.title}>Verify AWS Credentials</h2>
 
         <input
           type="text"
-          name="aws-access-key"
           placeholder="AWS Access Key"
           autoComplete="off"
           value={accessKey}
@@ -35,7 +34,6 @@ export default function AwsCredentials() {
 
         <input
           type="password"
-          name="aws-secret-key"
           placeholder="AWS Secret Key"
           autoComplete="new-password"
           value={secretKey}
@@ -55,46 +53,46 @@ export default function AwsCredentials() {
 
 const styles = {
   wrapper: {
-    display: 'flex',
     height: '100vh',
+    width: '100vw',
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)',
+    background: 'linear-gradient(to right, #667eea, #764ba2)',
     fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
   },
-  card: {
-    backgroundColor: '#1e1e1e',
-    padding: '2.5rem',
-    borderRadius: '16px',
+  form: {
     width: '100%',
-    maxWidth: '420px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+    maxWidth: '400px',
+    padding: '2rem',
+    borderRadius: '12px',
     textAlign: 'center',
-    color: '#fff',
+    background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(8px)',
+    boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
   },
   title: {
     fontSize: '1.5rem',
     marginBottom: '1.5rem',
     fontWeight: '600',
+    color: '#fff',
   },
   input: {
     width: '100%',
-    padding: '0.85rem',
+    padding: '0.8rem',
     margin: '0.6rem 0',
-    borderRadius: '10px',
-    border: '1px solid #555',
-    backgroundColor: '#2a2a2a',
-    color: '#fff',
+    borderRadius: '8px',
+    border: '1px solid #ccc',
     fontSize: '1rem',
-    transition: 'border 0.3s ease',
-    outline: 'none',
+    backgroundColor: '#f9f9f9',
+    color: '#333',
   },
   button: {
     marginTop: '1rem',
-    padding: '0.9rem 1.5rem',
     width: '100%',
+    padding: '0.9rem',
     fontSize: '1rem',
-    borderRadius: '10px',
+    borderRadius: '8px',
     border: 'none',
     backgroundColor: '#4f46e5',
     color: '#fff',
@@ -103,9 +101,11 @@ const styles = {
     transition: 'background 0.3s ease',
   },
   error: {
-    color: '#ff4d4f',
-    fontSize: '0.9rem',
+    color: '#ffe0e0',
+    background: '#ff4d4f',
+    padding: '0.4rem 0.8rem',
+    borderRadius: '6px',
     marginTop: '0.5rem',
-    animation: 'fadeIn 0.3s ease-in-out',
+    fontSize: '0.9rem',
   },
 };
